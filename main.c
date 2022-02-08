@@ -6,7 +6,7 @@
 /*   By: loamar <loamar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 22:13:02 by loamar            #+#    #+#             */
-/*   Updated: 2022/02/02 23:38:39 by loamar           ###   ########.fr       */
+/*   Updated: 2022/02/08 03:29:00 by loamar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,6 @@ int		main(int argc, char **argv)
 {
 	if (check_arg(argc, argv) == ERROR)
 		return (ft_error_msg("Wrong Argument\n"));
-
+	
 	// ;
 }
