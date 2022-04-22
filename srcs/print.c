@@ -6,11 +6,13 @@
 /*   By: loamar <loamar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 23:33:54 by loamar            #+#    #+#             */
-/*   Updated: 2022/02/06 12:21:32 by loamar           ###   ########.fr       */
+/*   Updated: 2022/04/22 11:43:03 by loamar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	print_status(int action)
+#include "../include/swap.h"
+
+void	print_status((&operation)(data), int action)
 {
 	if (action == SA)
 		ft_putstr_fd("sa\n", 1);

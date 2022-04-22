@@ -1,3 +1,5 @@
+#include "../../include/swap.h"
+
 void rra(t_data *data)
 {
   int pos;
