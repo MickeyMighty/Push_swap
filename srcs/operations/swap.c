@@ -27,7 +27,7 @@ void sb(t_data *data)
 
 void ss(t_data *data)
 {
-  swap_a(*data);
-  swap_b(*data);
+  sa(data);
+  sb(data);
   return ;
 }

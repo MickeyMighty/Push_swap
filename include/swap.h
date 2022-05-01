@@ -13,6 +13,7 @@
 #ifndef SWAP_H
 # define SWAP_H
 # include <unistd.h>
+# include <stdlib.h>
 
 # define SUCCESS 0
 # define ERROR -1
@@ -41,8 +42,8 @@ typedef struct data
   int pos_b;
 }							t_data;
 
-typedef void (*operation)(t_data);
-operation ftab[11];
+typedef void (operation)(t_data*);
+operation *ftab[11];
 
 /*
 ** PRINT

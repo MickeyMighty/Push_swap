@@ -9,7 +9,7 @@ void rra(t_data *data)
   return ;
   while (pos > 0)
   {
-    ft_swap(data->tab_a[pos], data->tab_a[pos - 1]);
+    ft_swap(&data->tab_a[pos], &data->tab_a[pos - 1]);
     pos--;
   }
 }
@@ -23,7 +23,7 @@ void rrb(t_data *data)
   return ;
   while (pos > 0)
   {
-    ft_swap(data->tab_b[pos], data->tab_b[pos - 1]);
+    ft_swap(&data->tab_b[pos], &data->tab_b[pos - 1]);
     pos--;
   }
 }

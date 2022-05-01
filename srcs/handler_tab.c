@@ -19,22 +19,22 @@ static int check_is_good(t_data *data)
 
 int sort_tab(t_data *data)
 {
-  ftab[SA] == &sa;
-  ftab[SB] == &sb;
-  ftab[SS] == &ss;
-  ftab[PA] == &pa;
-  ftab[PB] == &pb;
-  ftab[RA] == &ra;
-  ftab[RB] == &rb;
-  ftab[RR] == &rr;
-  ftab[RRA] == &rra;
-  ftab[RRB] == &rrb;
-  ftab[RRR] == &rrr;
-  if (check_is_good == SUCCESS)
+  ftab[SA] = &sa;
+  ftab[SB] = &sb;
+  ftab[SS] = &ss;
+  ftab[PA] = &pa;
+  ftab[PB] = &pb;
+  ftab[RA] = &ra;
+  ftab[RB] = &rb;
+  ftab[RR] = &rr;
+  ftab[RRA] = &rra;
+  ftab[RRB] = &rrb;
+  ftab[RRR] = &rrr;
+  if (check_is_good(data) == SUCCESS)
     return (SUCCESS);
   if (data->size_a == 2)
   {
-    print_status(*(operation[SA]))(data));
+    print_status((ftab[SA])(data));
     return (SUCCESS);
   }
 

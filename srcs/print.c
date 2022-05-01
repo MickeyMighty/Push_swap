@@ -12,8 +12,9 @@
 
 #include "../include/swap.h"
 
-void	print_status((&operation)(data), int action)
+void	print_status(operation(data), int action)
 {
+	(operation)[action];
 	if (action == SA)
 		ft_putstr_fd("sa\n", 1);
 	else if (action == SB)

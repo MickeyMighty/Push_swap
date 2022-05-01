@@ -2,9 +2,9 @@ SRCS		=	srcs/operations/push.c		\
 				srcs/operations/rotate_reverse.c		\
 				srcs/operations/rotate.c		\
 				srcs/operations/swap.c		\
+				srcs/print.c		\
 				srcs/handler_tab.c		\
 				srcs/main.c		\
-				srcs/handler_tab,c 	\
 
 
 OBJS			= $(SRCS:.c=.o)
