@@ -1,4 +1,4 @@
-int   short_sort(t_data *data)
+int   sort_two_three(t_data *data)
 {
   if (data->size_a == 2
     print_operation(SA

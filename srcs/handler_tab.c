@@ -23,7 +23,7 @@ int sort_tab(t_data *data)
     return (SUCCESS);
   if (data->size_a <= 3)
     return (sort_two_three(data));
-  if ()
+  if (data->size_ <= 4)
 }
 
 int fill_tab(t_data *data, char **argv)
