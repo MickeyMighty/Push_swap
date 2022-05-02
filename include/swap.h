@@ -42,14 +42,11 @@ typedef struct data
   int pos_b;
 }							t_data;
 
-typedef void (operation)(t_data*);
-operation *ftab[11];
-
 /*
 ** PRINT
 */
 
-void	print_status(operation data, int action);
+void	print_status(int action);
 
 /*
 ** OPERATIONS/PUSH

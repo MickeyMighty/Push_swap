@@ -12,29 +12,74 @@
 
 #include "../include/swap.h"
 
-void	print_status(operation(data), int action)
+
+static print_operation_three(t_data *data, int action)
 {
-	(operation)[action];
-	if (action == SA)
-		ft_putstr_fd("sa\n", 1);
-	else if (action == SB)
-		ft_putstr_fd("sb\n", 1);
-	else if (action == SS)
-		ft_putstr_fd("ss\n", 1);
-	else if (action == PA)
-		ft_putstr_fd("pa\n", 1);
-	else if (action == PB)
-		ft_putstr_fd("pb\n", 1);
-	else if (action == RA)
-		ft_putstr_fd("ra\n", 1);
-	else if (action == RB)
-		ft_putstr_fd("rb\n", 1);
-	else if (action == RR)
-		ft_putstr_fd("rr\n", 1);
-	else if (action == RRA)
+	if (action == RRA)
+	{
+		rra(data);
 		ft_putstr_fd("rra\n", 1);
+	}
 	else if (action == RRB)
+	{
+		rrb(data);
 		ft_putstr_fd("rrb\n", 1);
+	}
 	else if (action == RRR)
+	{
+		rrr(data);
 		ft_putstr_fd("rrr\n", 1);
+	}
+}
+
+static print_operation_two(t_data *data, int action)
+{
+	if (action == PB)
+	{
+		pb(data);
+		ft_putstr_fd("pb\n", 1);
+	}
+	else if (action == RA)
+	{
+		ra(data);
+		ft_putstr_fd("ra\n", 1);
+	}
+	else if (action == RB)
+	{
+		rb(data);
+		ft_putstr_fd("rb\n", 1);
+	}
+	else if (action == RR)
+	{
+		rr(data);
+		ft_putstr_fd("rr\n", 1);
+	}
+	else
+		print_action_three(data, action);
+}
+
+void	print_operation(t_data *data, int action)
+{
+	if (action == SA)
+	{
+		sa(data);
+		ft_putstr_fd("sa\n", 1);
+	}
+	else if (action == SB)
+	{
+		sb(data);
+		ft_putstr_fd("sb\n", 1);
+	}
+	else if (action == SS)
+	{
+		ss(data);
+		ft_putstr_fd("ss\n", 1);
+	}
+	else if (action == PA)
+	{
+		pa(data);
+		ft_putstr_fd("pa\n", 1);
+	}
+	else
+		print_action_two(data, action);
 }
