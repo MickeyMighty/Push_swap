@@ -28,15 +28,13 @@ int   sort_big(t_data *data)
   int pos;
 
   pos = 0;
-  // mediane = 0;
-  // if (data->size_a % 2 == 0)
-  //   mediane = data_size_a / 2;
-  // else
-  //   mediane = (data_size_a / 2) + 1;
-  while (pos <= data->size_a - 3)
-  {
-    print_operation(PB);
-    pos++;
-  }
+  mediane = 0;
+  if (data->size_a % 2 == 0)
+    mediane = data_size_a / 2;
+  else
+    mediane = (data_size_a / 2) + 1;
+  // while (data->size_a > 3)
+  //   print_operation(PB);
   
+
 }
