@@ -22,6 +22,21 @@ int   sort_two_three(t_data *data)
   return (SUCCESS);
 }
 
+static int   get_mediane(t_data *data)
+{
+  int  pos;
+  int  mediane;
+
+  pos = 0;
+  mediane = 0;
+  if (data->size_a >= 500)
+    pos = data->size_a / 7;
+  else
+    pos = size / 5;
+  mediane = data->tab_a[pos];
+  return (mediane);
+}
+
 int   sort_big(t_data *data)
 {
   int mediane;
@@ -29,12 +44,10 @@ int   sort_big(t_data *data)
 
   pos = 0;
   mediane = 0;
-  if (data->size_a % 2 == 0)
-    mediane = data_size_a / 2;
-  else
-    mediane = (data_size_a / 2) + 1;
+  while (pos <= data->size_a)
+  {
+
+  }
   // while (data->size_a > 3)
   //   print_operation(PB);
-  
-
 }
