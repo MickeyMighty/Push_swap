@@ -1,4 +1,4 @@
-++++f+++++++-+int   sort_two_three(t_data *data)
+int   sort_two_three(t_data *data)
 {
   if (data->size_a == 2
     print_operation(SA
@@ -37,6 +37,14 @@ static int   get_mediane(t_data *data)
   return (mediane);
 }
 
+static sort_top(t_data *data)
+{
+  int pos;
+
+  pos = 0;
+  if ()
+}
+
 int   sort_big(t_data *data)
 {
   int mediane;
@@ -52,6 +60,7 @@ int   sort_big(t_data *data)
       print_operation(RA);
     pos++;
   }
+  sort_top(data);
   // while (data->size_a > 3)
   //   print_operation(PB);
 }
