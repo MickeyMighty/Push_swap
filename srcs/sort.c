@@ -1,28 +1,31 @@
+#include "../include/swap.h"
+
 int   sort_two_three(t_data *data)
 {
-  if (data->size_a == 2
-    print_operation(SA
+  printf("sorting 2 and 3\n");
+  if (data->size_a == 2)
+    print_operation(data, SA);
   else if (data->size_a == 3)
   {
     if (data->tab_a[0] > data->tab_a[1] && data->tab_a[0] > data->tab_a[2])
     {
-      print_operation(RA);
+      print_operation(data, RA);
       if (check_is_good(data) == ERROR)
-        print_operation(SA);
+        print_operation(data, SA);
     }
+    else if (data->tab_a[1] > data->tab_a[0] && data->tab_a[1] > data->tab_a[2])
+    {
+      print_operation(data, RRA);
+      if (check_is_good(data) == ERROR)
+        print_operation(data, SA);
+    }
+    else
+      print_operation(data, SA);
   }
-  else if (data->tab_a[1] > data->tab_a[0] && data->tab_a[1] > data->tab_a[2])
-  {
-    print_operation(RRA);
-    if (check_is_good(data) == ERROR)
-      print_operation(SA);
-  }
-  else
-    print_operation(SA);
   return (SUCCESS);
 }
 
-static int   get_mediane(t_data *data)
+int   get_mediane(t_data *data)
 {
   int  pos;
   int  mediane;
@@ -32,35 +35,60 @@ static int   get_mediane(t_data *data)
   if (data->size_a >= 500)
     pos = data->size_a / 7;
   else
-    pos = size / 5;
+    pos = data->size_a / 5;
   mediane = data->tab_a[pos];
   return (mediane);
 }
 
-static sort_top(t_data *data)
+static int  search_max_number(t_data *data)
 {
   int pos;
+  int stock;
+
 
   pos = 0;
-  if ()
-}
-
-int   sort_big(t_data *data)
-{
-  int mediane;
-  int pos;
-
-  pos = 0;
-  mediane = 0;
+  stock = data->tab_a[pos];
   while (pos <= data->size_a)
   {
-    if (data->tab_a[pos] <= mediane)
-      print_operation(PB);
-    else
-      print_operation(RA);
+    if (data->tab_a[pos] > stock)
+      stock = data->tab_a[pos];
     pos++;
   }
-  sort_top(data);
-  // while (data->size_a > 3)
-  //   print_operation(PB);
+  return (pos);
+}
+
+static void max_sort_top(t_data *data, int max)
+{
+  if (max <= data->size_b / 2)
+  {
+    while (max && max != 1)
+    {
+      print_operation(data, RB);
+      max--;
+    }
+  }
+  else if (max != 1)
+  {
+    while (max <= data->size_a)
+    {
+      print_operation(data, RRB);
+      max++;
+    }
+  }
+}
+
+void sort_top(t_data *data)
+{
+  int pos;
+  int max;
+
+  max = 0;
+  pos = 0;
+  while (pos < data->size_b)
+  {
+    max = search_max_number(data);
+    max_sort_top(data, max);
+    print_operation(data, PA);
+    pos++;
+  }
 }

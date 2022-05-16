@@ -13,7 +13,7 @@
 #include "../include/swap.h"
 
 
-static print_operation_three(t_data *data, int action)
+static void print_operation_three(t_data *data, int action)
 {
 	if (action == RRA)
 	{
@@ -32,7 +32,7 @@ static print_operation_three(t_data *data, int action)
 	}
 }
 
-static print_operation_two(t_data *data, int action)
+static void print_operation_two(t_data *data, int action)
 {
 	if (action == PB)
 	{
@@ -55,7 +55,7 @@ static print_operation_two(t_data *data, int action)
 		ft_putstr_fd("rr\n", 1);
 	}
 	else
-		print_action_three(data, action);
+		print_operation_three(data, action);
 }
 
 void	print_operation(t_data *data, int action)
@@ -81,5 +81,5 @@ void	print_operation(t_data *data, int action)
 		ft_putstr_fd("pa\n", 1);
 	}
 	else
-		print_action_two(data, action);
+		print_operation_two(data, action);
 }

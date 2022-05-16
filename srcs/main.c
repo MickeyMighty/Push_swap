@@ -66,6 +66,18 @@ static	int	error_msg()
 	return (ERROR);
 }
 
+void print_tab(t_data *data) // pour afficher test
+{
+	int pos;
+
+	pos = 0;
+	printf("===============\n");
+	while (pos < data->size_a)
+	{
+		printf("[%d][%d]\n", pos, data->tab_a[pos]);
+		pos++;
+	}
+}
 int		main(int argc, char **argv)
 {
 	t_data	data;
@@ -78,9 +90,12 @@ int		main(int argc, char **argv)
 	data.size_b = 0;
 	data.pos_a = 0;
 	data.pos_b = 0;
-	if (fill_tab(&data) == ERROR)
+	if (fill_tab(&data, argv) == ERROR)
 		return (error_msg());
+	print_tab(&data);
+	// return (0);
 	if (check_double(&data) == ERROR)
 		return (error_msg());
 	sort_tab(&data);
+	print_tab(&data);
 }

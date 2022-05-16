@@ -14,6 +14,7 @@
 # define SWAP_H
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
 
 # define SUCCESS 0
 # define ERROR -1
@@ -43,10 +44,14 @@ typedef struct data
 }							t_data;
 
 /*
-** PRINT
+** TOOLS
 */
 
-void	print_status(int action);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putnbr(long int n);
+int	ft_atoi(const char *str);
+int	ft_isdigit(int c);
+void	ft_putchar_fd(char c, int fd);
 
 /*
 ** OPERATIONS/PUSH
@@ -81,10 +86,26 @@ void sb(t_data *data);
 void ss(t_data *data);
 
 /*
+** PRINT
+*/
+
+void	print_operation(t_data *data, int action);
+
+/*
 ** HANDLER_TAB
 */
 
+int check_is_good(t_data *data);
+int sort_big(t_data *data);
 int sort_tab(t_data *data);
 int fill_tab(t_data *data, char **argv);
+
+/*
+** SORT
+*/
+
+int   sort_two_three(t_data *data);
+int   get_mediane(t_data *data);
+void sort_top(t_data *data);
 
 # endif

@@ -4,7 +4,9 @@ SRCS		=	srcs/operations/push.c		\
 				srcs/operations/swap.c		\
 				srcs/print.c		\
 				srcs/handler_tab.c		\
+				srcs/sort.c		\
 				srcs/main.c		\
+				srcs/tools.c		\
 
 
 OBJS			= $(SRCS:.c=.o)
