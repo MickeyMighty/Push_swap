@@ -78,6 +78,8 @@ void print_tab(t_data *data) // pour afficher test
 		pos++;
 	}
 }
+
+
 int		main(int argc, char **argv)
 {
 	t_data	data;

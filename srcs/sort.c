@@ -9,9 +9,11 @@ int   sort_two_three(t_data *data)
   {
     if (data->tab_a[0] > data->tab_a[1] && data->tab_a[0] > data->tab_a[2])
     {
+      printf("ici\n");
       print_operation(data, RA);
       if (check_is_good(data) == ERROR)
         print_operation(data, SA);
+      print_tab(data);
     }
     else if (data->tab_a[1] > data->tab_a[0] && data->tab_a[1] > data->tab_a[2])
     {

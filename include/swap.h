@@ -43,6 +43,9 @@ typedef struct data
   int pos_b;
 }							t_data;
 
+
+//  a supprimer, juste pour les test
+void print_tab(t_data *data); // pour afficher test
 /*
 ** TOOLS
 */
