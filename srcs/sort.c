@@ -2,14 +2,12 @@
 
 int   sort_two_three(t_data *data)
 {
-  printf("sorting 2 and 3\n");
   if (data->size_a == 2)
     print_operation(data, SA);
   else if (data->size_a == 3)
   {
     if (data->tab_a[0] > data->tab_a[1] && data->tab_a[0] > data->tab_a[2])
     {
-      printf("ici\n");
       print_operation(data, RA);
       print_tab(data);
       if (check_is_good(data) == ERROR)

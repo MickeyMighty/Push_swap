@@ -21,12 +21,12 @@ int   sort_big(t_data *data)
 {
   int mediane;
   int pos;
-  int pos1;
+  // int pos1;
 
-  pos1 = 0;
+  // pos1 = 0;
   pos = 0;
   mediane = 0;
-  while (pos1 < data->size_a)
+  while (data->size_a != 0)
   {
     pos = data->size_a;
     mediane = get_mediane(data);
@@ -38,7 +38,7 @@ int   sort_big(t_data *data)
         print_operation(data, RA);
       pos--;
     }
-    pos1++;
+    // pos1++;
   }
   sort_top(data);
   // while (data->size_a > 3)
