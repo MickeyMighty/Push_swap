@@ -23,6 +23,8 @@ int   sort_big(t_data *data)
   int pos;
   int pos1;
 
+  pos1 = 0;
+  pos = 0;
   mediane = 0;
   while (pos1 < data->size_a)
   {

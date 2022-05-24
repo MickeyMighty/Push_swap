@@ -11,6 +11,7 @@ int   sort_two_three(t_data *data)
     {
       printf("ici\n");
       print_operation(data, RA);
+      print_tab(data);
       if (check_is_good(data) == ERROR)
         print_operation(data, SA);
       print_tab(data);
