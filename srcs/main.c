@@ -72,11 +72,20 @@ void print_tab(t_data *data) // pour afficher test
 
 	pos = 0;
 	printf("===============\n");
+	printf("|-tab A-|\n");
 	while (pos < data->size_a)
 	{
-		printf("[%d][%d]\n", pos, data->tab_a[pos]);
+		printf("%d-[%d]\n", pos, data->tab_a[pos]);
 		pos++;
 	}
+	pos = 0;
+	printf("|-tab B-|\n");
+	while (pos < data->size_b)
+	{
+		printf("%d-[%d]\n", pos, data->tab_b[pos]);
+		pos++;
+	}
+	printf("===============\n");
 }
 
 
@@ -95,6 +104,15 @@ int		main(int argc, char **argv)
 	if (fill_tab(&data, argv) == ERROR)
 		return (error_msg());
 	print_tab(&data);
+	// print_operation(&data, PB);
+	// print_tab(&data);
+	// print_operation(&data, PB);
+	// print_tab(&data);
+	// print_operation(&data, PA);
+	// print_tab(&data);
+	// print_operation(&data, PA);
+	// print_tab(&data);
+	// return (0);
 	// return (0);
 	if (check_double(&data) == ERROR)
 		return (error_msg());

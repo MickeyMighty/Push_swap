@@ -19,31 +19,59 @@ int check_is_good(t_data *data)
 
 int   sort_big(t_data *data)
 {
-  int mediane;
-  int pos;
-  // int pos1;
+  int i;
+  int j;
+  int stock;
+  int bits;
 
-  // pos1 = 0;
-  pos = 0;
-  mediane = 0;
-  while (data->size_a != 0)
+  bits = 0;
+  while ((data->size_a - 1) >> bits != 0)
+    bits++;
+  i = 0;
+  while (i < bits)
   {
-    pos = data->size_a;
-    mediane = get_mediane(data);
-    while (pos > 0)
+    j = 0;
+    while (j <= data->size_a)
     {
-      if (data->tab_a[pos] <= mediane)
-        print_operation(data, PB);
-      else
+      stock = data->tab_a[0];
+      if (((stock >> i) & 1) == 1)
         print_operation(data, RA);
-      pos--;
+      else
+        print_operation(data, PB);
+      j++;
     }
-    // pos1++;
+    while (data->size_b)
+      print_operation(data, PA);
+    i++;
   }
-  sort_top(data);
-  // while (data->size_a > 3)
-  //   print_operation(PB);
   return (SUCCESS);
+  // int mediane;
+  // int pos;
+  // // int size;
+  //
+  // pos = 0;
+  // // size = 0;
+  // mediane = 0;
+  // while (data->size_a) // petit ?
+  // {
+  //   mediane = get_mediane(data);
+  //   pos = data->size_a;
+  //   // printf("mediane = %d\n", mediane);
+  //   // printf("pos = %d\n",pos);
+  //   // exit(0);
+  //   while (pos)
+  //   {
+  //     if (data->tab_a[0] <= mediane || data->size_a == 1)
+  //       print_operation(data, PB);
+  //     else
+  //       print_operation(data, RA);
+  //     pos--;
+  //   }
+  //   // size++;
+  // }
+  // print_tab(data);
+  // sort_top(data);
+  // return (SUCCESS);
 }
 
 int sort_tab(t_data *data)
