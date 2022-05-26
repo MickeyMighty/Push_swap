@@ -17,6 +17,28 @@ int check_is_good(t_data *data)
   return (SUCCESS);
 }
 
+static int  give_index(t_data *data)
+{
+  int index;
+  int pos;
+  int nbr;
+
+  nbr = 0;
+  pos = 0;
+  index = 0;
+  nbr = data->tab_a[pos];
+  pos++;
+  while (pos < data->size_a)
+  {
+    if (nbr > data->tab_a[pos])
+      index++;
+    pos++;
+  }
+  printf("index = %d\n", index);
+  // print_tab(data);
+  return (index);
+}
+
 int   sort_big(t_data *data)
 {
   int i;
@@ -25,23 +47,32 @@ int   sort_big(t_data *data)
   int bits;
 
   bits = 0;
-  while ((data->size_a - 1) >> bits != 0)
+  while ((data->size_a) >> bits != 0)
     bits++;
   i = 0;
-  while (i < bits)
+  while (i <= bits)
   {
     j = 0;
     while (j <= data->size_a)
     {
-      stock = data->tab_a[0];
+      stock = give_index(data);
       if (((stock >> i) & 1) == 1)
+      {
         print_operation(data, RA);
+        print_tab(data);
+      }
       else
+      {
         print_operation(data, PB);
+        print_tab(data);
+      }
       j++;
     }
     while (data->size_b)
+    {
       print_operation(data, PA);
+      print_tab(data);
+    }
     i++;
   }
   return (SUCCESS);
@@ -80,7 +111,8 @@ int sort_tab(t_data *data)
     return (SUCCESS);
   if (data->size_a <= 3)
     return (sort_two_three(data));
-  return (sort_big(data));
+  else
+    return (sort_big(data));
 }
 
 int fill_tab(t_data *data, char **argv)
