@@ -37,10 +37,13 @@ typedef struct data
 {
   int *tab_a;
   int *tab_b;
+  int **lair_tab;
   int size_a;
   int size_b;
-  int pos_a;
-  int pos_b;
+  int size_lair;
+  int free_lair_tab;
+  // int pos_a;
+  // int pos_b;
 }							t_data;
 
 
@@ -99,7 +102,6 @@ void	print_operation(t_data *data, int action);
 */
 
 int check_is_good(t_data *data);
-int sort_big(t_data *data);
 int sort_tab(t_data *data);
 int fill_tab(t_data *data, char **argv);
 
@@ -107,6 +109,7 @@ int fill_tab(t_data *data, char **argv);
 ** SORT
 */
 
+int  create_lairtab(t_data *data);
 int   sort_two_three(t_data *data);
 int   get_mediane(t_data *data);
 void sort_top(t_data *data);

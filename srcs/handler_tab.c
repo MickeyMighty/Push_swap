@@ -17,29 +17,25 @@ int check_is_good(t_data *data)
   return (SUCCESS);
 }
 
-static int  give_index(t_data *data)
+static int  find_index(t_data *data)
 {
-  int index;
-  int pos;
-  int nbr;
+  int find;
+  int target;
 
-  nbr = 0;
-  pos = 0;
-  index = 0;
-  nbr = data->tab_a[pos];
-  pos++;
-  while (pos < data->size_a)
+  find = 0;
+  target = 0;
+  find = data->tab_a[0];
+  while (target < data->size_lair)
   {
-    if (nbr > data->tab_a[pos])
-      index++;
-    pos++;
+    if (data->lair_tab[0][target] == find)
+      break ;
+    else
+      target++;
   }
-  printf("index = %d\n", index);
-  // print_tab(data);
-  return (index);
+  return (data->lair_tab[1][target]);
 }
 
-int   sort_big(t_data *data)
+static int   sort_big(t_data *data, int size)
 {
   int i;
   int j;
@@ -47,62 +43,26 @@ int   sort_big(t_data *data)
   int bits;
 
   bits = 0;
-  while ((data->size_a) >> bits != 0)
+  while ((data->size_a - 1) >> bits != 0)
     bits++;
   i = 0;
-  while (i <= bits)
+  while (i < bits)
   {
     j = 0;
-    while (j <= data->size_a)
+    while (j < size)
     {
-      stock = give_index(data);
+      stock = find_index(data);
       if (((stock >> i) & 1) == 1)
-      {
         print_operation(data, RA);
-        print_tab(data);
-      }
       else
-      {
         print_operation(data, PB);
-        print_tab(data);
-      }
       j++;
     }
     while (data->size_b)
-    {
       print_operation(data, PA);
-      print_tab(data);
-    }
     i++;
   }
   return (SUCCESS);
-  // int mediane;
-  // int pos;
-  // // int size;
-  //
-  // pos = 0;
-  // // size = 0;
-  // mediane = 0;
-  // while (data->size_a) // petit ?
-  // {
-  //   mediane = get_mediane(data);
-  //   pos = data->size_a;
-  //   // printf("mediane = %d\n", mediane);
-  //   // printf("pos = %d\n",pos);
-  //   // exit(0);
-  //   while (pos)
-  //   {
-  //     if (data->tab_a[0] <= mediane || data->size_a == 1)
-  //       print_operation(data, PB);
-  //     else
-  //       print_operation(data, RA);
-  //     pos--;
-  //   }
-  //   // size++;
-  // }
-  // print_tab(data);
-  // sort_top(data);
-  // return (SUCCESS);
 }
 
 int sort_tab(t_data *data)
@@ -112,7 +72,11 @@ int sort_tab(t_data *data)
   if (data->size_a <= 3)
     return (sort_two_three(data));
   else
-    return (sort_big(data));
+  {
+    if (create_lairtab(data) == ERROR)
+      return (ERROR);
+    return (sort_big(data, data->size_a));
+  }
 }
 
 int fill_tab(t_data *data, char **argv)
@@ -131,5 +95,6 @@ int fill_tab(t_data *data, char **argv)
     data->tab_a[pos] = ft_atoi(argv[pos + 1]);
     pos++;
   }
+  data->free_lair_tab = 0;
   return (SUCCESS);
 }

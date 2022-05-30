@@ -7,7 +7,6 @@ SRCS		=	srcs/operations/push.c		\
 				srcs/sort.c		\
 				srcs/main.c		\
 				srcs/tools.c		\
-				srcs/handler_mediane.c		\
 
 
 OBJS			= $(SRCS:.c=.o)

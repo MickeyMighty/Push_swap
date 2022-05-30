@@ -19,10 +19,10 @@ static	int	check_double(t_data *data)
 		int		limit;
 
 		check = 0;
-		pos = 0;
 		limit = 0;
 		while (limit < data->size_a)
 		{
+			pos = 0;
 			check = data->tab_a[limit];
 			while (pos < data->size_a)
 			{
@@ -49,6 +49,8 @@ static	int	check_arg(int argc, char **argv)
 	{
 		while (argv[word][pos] != '\0')
 		{
+			if (argv[word][pos] == '-' || argv[word][pos] == '+')
+				pos++;
 			if (ft_isdigit(argv[word][pos]) == 0)
 				return (ERROR);
 			pos++;
@@ -99,8 +101,7 @@ int		main(int argc, char **argv)
 		return (error_msg());
 	data.size_a = argc - 1;
 	data.size_b = 0;
-	data.pos_a = 0;
-	data.pos_b = 0;
+	data.size_lair = argc - 1;
 	if (fill_tab(&data, argv) == ERROR)
 		return (error_msg());
 	print_tab(&data);
