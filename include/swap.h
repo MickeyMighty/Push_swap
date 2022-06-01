@@ -6,7 +6,7 @@
 /*   By: loamar <loamar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 22:04:59 by loamar            #+#    #+#             */
-/*   Updated: 2022/04/22 13:02:37 by loamar           ###   ########.fr       */
+/*   Updated: 2022/05/31 17:07:10 by loamar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,86 +32,83 @@
 # define RRB 9
 # define RRR 10
 
-
 typedef struct data
 {
-  int *tab_a;
-  int *tab_b;
-  int **lair_tab;
-  int size_a;
-  int size_b;
-  int size_lair;
-  int free_lair_tab;
-  // int pos_a;
-  // int pos_b;
+	int	*tab_a;
+	int	*tab_b;
+	int	**lair_tab;
+	int	size_a;
+	int	size_b;
+	int	size_lair;
+	int	free_lair_tab;
 }							t_data;
 
+void free_data(t_data *data, int flag);
+void	print_tab(t_data *data); // pour afficher test
 
-//  a supprimer, juste pour les test
-void print_tab(t_data *data); // pour afficher test
 /*
-** TOOLS
-*/
+ ** TOOLS
+ */
 
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putnbr(long int n);
-int	ft_atoi(const char *str);
-int	ft_isdigit(int c);
 void	ft_putchar_fd(char c, int fd);
+int		ft_atoi(const char *str);
+int		ft_isdigit(int c);
 
 /*
-** OPERATIONS/PUSH
-*/
+ ** OPERATIONS/PUSH
+ */
 
-void pa(t_data *data);
-void pb(t_data *data);
-
-/*
-** OPERATIONS/ROTATE_REVERSE
-*/
-
-void rra(t_data *data);
-void rrb(t_data *data);
-void rrr(t_data *data);
+void	pa(t_data *data);
+void	pb(t_data *data);
 
 /*
-** OPERATIONS/ROTATE
-*/
+ ** OPERATIONS/ROTATE_REVERSE
+ */
 
-void ra(t_data *data);
-void rb(t_data *data);
-void rr(t_data *data);
+void	rra(t_data *data);
+void	rrb(t_data *data);
+void	rrr(t_data *data);
 
 /*
-** OPERATIONS/SWAP
-*/
+ ** OPERATIONS/ROTATE
+ */
+
+void	ra(t_data *data);
+void	rb(t_data *data);
+void	rr(t_data *data);
+
+/*
+ ** OPERATIONS/SWAP
+ */
 
 void	ft_swap(int *a, int *b);
-void sa(t_data *data);
-void sb(t_data *data);
-void ss(t_data *data);
+void	sa(t_data *data);
+void	sb(t_data *data);
+void	ss(t_data *data);
 
 /*
-** PRINT
-*/
+ ** PRINT
+ */
 
 void	print_operation(t_data *data, int action);
 
 /*
-** HANDLER_TAB
-*/
+ ** HANDLER_TAB
+ */
 
-int check_is_good(t_data *data);
-int sort_tab(t_data *data);
-int fill_tab(t_data *data, char **argv);
+int		check_is_good(t_data *data);
+int		sort_tab(t_data *data);
+int		fill_tab(t_data *data, char **argv);
 
 /*
-** SORT
-*/
+ ** SORT
+ */
 
-int  create_lairtab(t_data *data);
-int   sort_two_three(t_data *data);
-int   get_mediane(t_data *data);
-void sort_top(t_data *data);
+int		create_lairtab(t_data *data);
+int		sort_two_three(t_data *data);
+int		get_mediane(t_data *data);
+void	sort_top(t_data *data);
 
-# endif
+#endif

@@ -6,7 +6,7 @@
 /*   By: loamar <loamar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 22:13:02 by loamar            #+#    #+#             */
-/*   Updated: 2022/04/22 11:43:37 by loamar           ###   ########.fr       */
+/*   Updated: 2022/05/31 16:51:17 by loamar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ static	int	check_double(t_data *data)
 		{
 			pos = 0;
 			check = data->tab_a[limit];
+			// if (check > 2147483647 || check < (-2147483647 - 1))
+			// 	return (ERROR);
 			while (pos < data->size_a)
 			{
 				if (data->tab_a[pos] == check
@@ -90,7 +92,24 @@ void print_tab(t_data *data) // pour afficher test
 	printf("===============\n");
 }
 
-
+void free_data(t_data *data, int flag)
+{
+	if (flag == 1 || flag == 2)
+	{
+		free(data->tab_a);
+		free(data->tab_b);
+		if (flag == 2)
+		{
+			printf("2\n");
+			free(data->lair_tab[0]);
+			printf("3\n");
+			free(data->lair_tab[1]);
+			printf("4\n");
+			free(data->lair_tab);
+			printf("5\n");
+		}
+	}
+}
 int		main(int argc, char **argv)
 {
 	t_data	data;
@@ -104,19 +123,10 @@ int		main(int argc, char **argv)
 	data.size_lair = argc - 1;
 	if (fill_tab(&data, argv) == ERROR)
 		return (error_msg());
-	print_tab(&data);
-	// print_operation(&data, PB);
-	// print_tab(&data);
-	// print_operation(&data, PB);
-	// print_tab(&data);
-	// print_operation(&data, PA);
-	// print_tab(&data);
-	// print_operation(&data, PA);
-	// print_tab(&data);
-	// return (0);
-	// return (0);
 	if (check_double(&data) == ERROR)
+	{
+		free_data(&data, 1);
 		return (error_msg());
+	}
 	sort_tab(&data);
-	print_tab(&data);
 }

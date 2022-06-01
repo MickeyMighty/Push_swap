@@ -6,14 +6,13 @@
 /*   By: loamar <loamar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 23:33:54 by loamar            #+#    #+#             */
-/*   Updated: 2022/04/22 11:43:03 by loamar           ###   ########.fr       */
+/*   Updated: 2022/05/31 16:58:14 by loamar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/swap.h"
 
-
-static void print_operation_three(t_data *data, int action)
+static void	print_operation_three(t_data *data, int action)
 {
 	if (action == RRA)
 	{
@@ -32,7 +31,7 @@ static void print_operation_three(t_data *data, int action)
 	}
 }
 
-static void print_operation_two(t_data *data, int action)
+static void	print_operation_two(t_data *data, int action)
 {
 	if (action == PB)
 	{
