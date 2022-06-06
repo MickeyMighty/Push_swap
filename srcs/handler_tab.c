@@ -94,9 +94,9 @@ int	sort_tab(t_data *data)
 		if (create_lairtab(data) == ERROR)
 			return (ERROR);
 		sort_big(data, data->size_a);
-		printf("1\n");
+		printf("-1-\n");
 		free_data(data, 2);
-		printf("2\n");
+		printf("-2-\n");
 		return (SUCCESS);
 	}
 }

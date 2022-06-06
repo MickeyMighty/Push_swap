@@ -96,18 +96,20 @@ void free_data(t_data *data, int flag)
 {
 	if (flag == 1 || flag == 2)
 	{
-		free(data->tab_a);
-		free(data->tab_b);
 		if (flag == 2)
 		{
 			printf("2\n");
-			free(data->lair_tab[0]);
-			printf("3\n");
 			free(data->lair_tab[1]);
+			printf("3\n");
+			free(data->lair_tab[0]);
 			printf("4\n");
 			free(data->lair_tab);
 			printf("5\n");
 		}
+		free(data->tab_a);
+		printf("6\n");
+		free(data->tab_b);
+		printf("7\n");
 	}
 }
 int		main(int argc, char **argv)

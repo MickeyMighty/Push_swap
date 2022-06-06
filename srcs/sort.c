@@ -77,6 +77,7 @@ int	create_lairtab(t_data *data)
 	data->lair_tab[1] = malloc(sizeof(int) * data->size_a);
 	if (!data->lair_tab[1])
 		return (ERROR);
+	printf("all malloc\n");
 	while (pos < data->size_a)
 	{
 		data->lair_tab[0][pos] = data->tab_a[pos];
