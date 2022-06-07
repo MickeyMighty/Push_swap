@@ -3,7 +3,8 @@ SRCS		=	srcs/operations/push.c		\
 				srcs/operations/rotate.c		\
 				srcs/operations/swap.c		\
 				srcs/print.c		\
-				srcs/handler_tab.c		\
+				srcs/check.c		\
+				srcs/handler_lairtab.c		\
 				srcs/sort.c		\
 				srcs/main.c		\
 				srcs/tools.c		\
@@ -13,7 +14,8 @@ OBJS			= $(SRCS:.c=.o)
 
 NAME			= push_swap
 
-CFLAGS			= -Wall -Wextra -Werror
+#CFLAGS			= -Wall -Wextra -Werror
+CFLAGS			=
 
 RM				= rm -f
 

@@ -39,55 +39,56 @@ int	sort_two_three(t_data *data)
 	return (SUCCESS);
 }
 
-static int	give_index(t_data *data, int pos)
+int	sort_big(t_data *data, int size)
 {
-	int	index;
-	int	nbr;
-	int	cmp;
+	int	i;
+	int	j;
+	int	stock;
+	int	bits;
 
-	nbr = 0;
-	index = 0;
-	nbr = data->lair_tab[0][pos];
-	cmp = pos;
-	pos++;
-	if (pos == data->size_a)
-		pos = 0;
-	while (pos != cmp)
+	bits = 0;
+	while ((data->size_a - 1) >> bits != 0)
+		bits++;
+	i = 0;
+	while (i < bits)
 	{
-		if (nbr > data->lair_tab[0][pos])
-			index++;
-		pos++;
-		if (pos == data->size_a)
-			pos = 0;
-	}
-	return (index);
-}
-
-int	create_lairtab(t_data *data)
-{
-	int	pos;
-
-	pos = 0;
-	data->lair_tab = malloc(sizeof(int *) * 2);
-	if (!data->lair_tab)
-		return (ERROR);
-	data->lair_tab[0] = malloc(sizeof(int) * data->size_a);
-	if (!data->lair_tab[0])
-		return (ERROR);
-	data->lair_tab[1] = malloc(sizeof(int) * data->size_a);
-	if (!data->lair_tab[1])
-		return (ERROR);
-	printf("all malloc\n");
-	while (pos < data->size_a)
-	{
-		data->lair_tab[0][pos] = data->tab_a[pos];
-		pos++;
-	}
-	pos = 0;
-	while (pos < data->size_a)
-	{
-		data->lair_tab[1][pos] = give_index(data, pos);
-		pos++;
+		j = 0;
+		while (j++ < size)
+		{
+			stock = find_index(data);
+			if (((stock >> i) & 1) == 1)
+				print_operation(data, RA);
+			else
+				print_operation(data, PB);
+		}
+		while (data->size_b)
+			print_operation(data, PA);
+		i++;
 	}
 	return (SUCCESS);
+}
+
+int	sort_tab(t_data *data)
+{
+	if (check_is_good(data) == SUCCESS)
+	{
+		free_data(data, 1);
+		return (SUCCESS);
+	}
+	if (data->size_a <= 3)
+	{
+		sort_two_three(data);
+		free_data(data, 1);
+		return (SUCCESS);
+	}
+	else
+	{
+		if (create_lairtab(data) == ERROR)
+			return (ERROR);
+		printf("-1-\n");
+		sort_big(data, data->size_a);
+		free_data(data, 2);
+		printf("-2-\n");
+		return (SUCCESS);
+	}
 }

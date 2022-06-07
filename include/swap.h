@@ -43,6 +43,11 @@ typedef struct data
 	int	free_lair_tab;
 }							t_data;
 
+/*
+** MAIN
+*/
+
+int		fill_tab(t_data *data, char **argv);
 void free_data(t_data *data, int flag);
 void	print_tab(t_data *data); // pour afficher test
 
@@ -95,20 +100,25 @@ void	ss(t_data *data);
 void	print_operation(t_data *data, int action);
 
 /*
- ** HANDLER_TAB
+ ** HANDLER_LAIRTAB
  */
 
+ int		create_lairtab(t_data *data);
+ int		find_index(t_data *data);
+
+/*
+ ** CHECK
+ */
+
+int		check_arg(int argc, char **argv);
+int		check_double(t_data *data);
 int		check_is_good(t_data *data);
-int		sort_tab(t_data *data);
-int		fill_tab(t_data *data, char **argv);
 
 /*
  ** SORT
  */
-
-int		create_lairtab(t_data *data);
-int		sort_two_three(t_data *data);
-int		get_mediane(t_data *data);
-void	sort_top(t_data *data);
+ int		sort_tab(t_data *data);
+ int		sort_big(t_data *data, int size);
+ int		sort_two_three(t_data *data);
 
 #endif

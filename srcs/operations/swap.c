@@ -25,6 +25,7 @@ void	sa(t_data *data)
 {
 	if (data->size_a < 2)
 		return ;
+	// if ()
 	ft_swap(&data->tab_a[0], &data->tab_a[1]);
 	return ;
 }

@@ -12,54 +12,23 @@
 
 #include "../include/swap.h"
 
-static	int	check_double(t_data *data)
+int	fill_tab(t_data *data, char **argv)
 {
-		int		check;
-		int		pos;
-		int		limit;
+	int	pos;
 
-		check = 0;
-		limit = 0;
-		while (limit < data->size_a)
-		{
-			pos = 0;
-			check = data->tab_a[limit];
-			// if (check > 2147483647 || check < (-2147483647 - 1))
-			// 	return (ERROR);
-			while (pos < data->size_a)
-			{
-				if (data->tab_a[pos] == check
-				&& limit != pos)
-					return (ERROR);
-				pos++;
-			}
-			limit++;
-		}
-		return (SUCCESS);
-}
-
-static	int	check_arg(int argc, char **argv)
-{
-	int		pos;
-	int		word;
-
-	word = 1;
 	pos = 0;
-	if (argc == 1)
+	data->tab_a = malloc(sizeof(int) * data->size_a);
+	if (!data->tab_a)
 		return (ERROR);
-	while (word < argc)
+	data->tab_b = malloc(sizeof(int) * data->size_b);
+	if (!data->tab_b)
+		return (ERROR);
+	while (pos < data->size_a)
 	{
-		while (argv[word][pos] != '\0')
-		{
-			if (argv[word][pos] == '-' || argv[word][pos] == '+')
-				pos++;
-			if (ft_isdigit(argv[word][pos]) == 0)
-				return (ERROR);
-			pos++;
-		}
-		pos = 0;
-		word++;
+		data->tab_a[pos] = ft_atoi(argv[pos + 1]);
+		pos++;
 	}
+	data->free_lair_tab = 0;
 	return (SUCCESS);
 }
 
