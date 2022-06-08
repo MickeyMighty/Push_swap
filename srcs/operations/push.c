@@ -36,10 +36,8 @@ void	pb(t_data *data)
 		return ;
 	stock = data->tab_a[0];
 	data->size_b++;
-	if (data->size_a > 1)
-		ra(data);
+	ra(data);
 	data->size_a--;
-	if (data->size_b > 1)
 	rrb(data);
 	data->tab_b[0] = stock;
 }

@@ -6,11 +6,33 @@
 /*   By: loamar <loamar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 22:13:02 by loamar            #+#    #+#             */
-/*   Updated: 2022/05/31 16:51:17 by loamar           ###   ########.fr       */
+/*   Updated: 2022/06/09 00:27:51 by loamar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/swap.h"
+
+int	find_min_nbr(t_data *data)
+{
+	int	pos;
+	int	min;
+	int	nbr;
+
+	pos = 0;
+	nbr = data->tab_a[pos];
+	min = pos;
+	pos++;
+	while (pos < data->size_a)
+	{
+		if (data->tab_a[pos] < nbr)
+		{
+			min = pos;
+			nbr = data->tab_a[pos];
+		}
+		pos++;
+	}
+	return (min);
+}
 
 int	fill_tab(t_data *data, char **argv)
 {
@@ -20,7 +42,7 @@ int	fill_tab(t_data *data, char **argv)
 	data->tab_a = malloc(sizeof(int) * data->size_a);
 	if (!data->tab_a)
 		return (ERROR);
-	data->tab_b = malloc(sizeof(int) * data->size_b);
+	data->tab_b = malloc(sizeof(int) * data->size_a);
 	if (!data->tab_b)
 		return (ERROR);
 	while (pos < data->size_a)
@@ -32,56 +54,29 @@ int	fill_tab(t_data *data, char **argv)
 	return (SUCCESS);
 }
 
-static	int	error_msg()
+static int	error_msg(void)
 {
 	ft_putstr_fd("Error", 2);
 	ft_putchar_fd('\n', 2);
 	return (ERROR);
 }
 
-void print_tab(t_data *data) // pour afficher test
-{
-	int pos;
-
-	pos = 0;
-	printf("===============\n");
-	printf("|-tab A-|\n");
-	while (pos < data->size_a)
-	{
-		printf("%d-[%d]\n", pos, data->tab_a[pos]);
-		pos++;
-	}
-	pos = 0;
-	printf("|-tab B-|\n");
-	while (pos < data->size_b)
-	{
-		printf("%d-[%d]\n", pos, data->tab_b[pos]);
-		pos++;
-	}
-	printf("===============\n");
-}
-
-void free_data(t_data *data, int flag)
+void	free_data(t_data *data, int flag)
 {
 	if (flag == 1 || flag == 2)
 	{
 		if (flag == 2)
 		{
-			printf("2\n");
 			free(data->lair_tab[1]);
-			printf("3\n");
 			free(data->lair_tab[0]);
-			printf("4\n");
 			free(data->lair_tab);
-			printf("5\n");
 		}
 		free(data->tab_a);
-		printf("6\n");
 		free(data->tab_b);
-		printf("7\n");
 	}
 }
-int		main(int argc, char **argv)
+
+int	main(int argc, char **argv)
 {
 	t_data	data;
 
@@ -96,6 +91,7 @@ int		main(int argc, char **argv)
 		return (error_msg());
 	if (check_double(&data) == ERROR)
 	{
+		printf("ici\n");
 		free_data(&data, 1);
 		return (error_msg());
 	}

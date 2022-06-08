@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handler_tab.c                                      :+:      :+:    :+:   */
+/*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loamar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 16:45:45 by loamar            #+#    #+#             */
-/*   Updated: 2022/05/31 16:49:59 by loamar           ###   ########.fr       */
+/*   Updated: 2022/06/09 00:25:25 by loamar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,28 +31,28 @@ int	check_is_good(t_data *data)
 
 int	check_double(t_data *data)
 {
-		int		check;
-		int		pos;
-		int		limit;
+	int		check;
+	int		pos;
+	int		limit;
 
-		check = 0;
-		limit = 0;
-		while (limit < data->size_a)
+	check = 0;
+	limit = 0;
+	while (limit < data->size_a)
+	{
+		pos = 0;
+		check = data->tab_a[limit];
+		while (pos < data->size_a)
 		{
-			pos = 0;
-			check = data->tab_a[limit];
-			// if (check > 2147483647 || check < (-2147483647 - 1))
-			// 	return (ERROR);
-			while (pos < data->size_a)
-			{
-				if (data->tab_a[pos] == check
+			if (data->tab_a[pos] > 2147483647 || data->tab_a[pos] < (-2147483647 - 1))
+				return (ERROR);
+			if (data->tab_a[pos] == check
 				&& limit != pos)
-					return (ERROR);
-				pos++;
-			}
-			limit++;
+				return (ERROR);
+			pos++;
 		}
-		return (SUCCESS);
+		limit++;
+	}
+	return (SUCCESS);
 }
 
 int	check_arg(int argc, char **argv)

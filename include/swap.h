@@ -6,7 +6,7 @@
 /*   By: loamar <loamar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 22:04:59 by loamar            #+#    #+#             */
-/*   Updated: 2022/05/31 17:07:10 by loamar           ###   ########.fr       */
+/*   Updated: 2022/06/09 00:38:05 by loamar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,12 @@ typedef struct data
 }							t_data;
 
 /*
-** MAIN
-*/
+ ** MAIN
+ */
 
+int		find_min_nbr(t_data *data);
 int		fill_tab(t_data *data, char **argv);
-void free_data(t_data *data, int flag);
+void	free_data(t_data *data, int flag);
 void	print_tab(t_data *data); // pour afficher test
 
 /*
@@ -103,8 +104,8 @@ void	print_operation(t_data *data, int action);
  ** HANDLER_LAIRTAB
  */
 
- int		create_lairtab(t_data *data);
- int		find_index(t_data *data);
+int		create_lairtab(t_data *data);
+int		find_index(t_data *data);
 
 /*
  ** CHECK
@@ -117,8 +118,8 @@ int		check_is_good(t_data *data);
 /*
  ** SORT
  */
- int		sort_tab(t_data *data);
- int		sort_big(t_data *data, int size);
- int		sort_two_three(t_data *data);
+int		sort_tab(t_data *data);
+int		sort_big(t_data *data, int size);
+int		sort_two_three(t_data *data);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: loamar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 16:55:26 by loamar            #+#    #+#             */
-/*   Updated: 2022/05/31 16:57:13 by loamar           ###   ########.fr       */
+/*   Updated: 2022/06/09 00:35:59 by loamar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	sa(t_data *data)
 {
 	if (data->size_a < 2)
 		return ;
-	// if ()
 	ft_swap(&data->tab_a[0], &data->tab_a[1]);
 	return ;
 }

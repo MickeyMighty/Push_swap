@@ -23,7 +23,6 @@ void	rra(t_data *data)
 		return ;
 	pos = data->size_a - 1;
 	stock = data->tab_a[data->size_a - 1];
-	// while (pos > 0)
 	while (pos > 0)
 	{
 		ft_swap(&data->tab_a[pos], &data->tab_a[pos - 1]);
@@ -41,9 +40,8 @@ void	rrb(t_data *data)
 	pos = 0;
 	if (data->size_b <= 1)
 		return ;
-	pos = data->size_b - 1;
+	pos = data->size_b;
 	stock = data->tab_b[data->size_b - 1];
-	// while (pos > 0)
 	while (pos > 0)
 	{
 		ft_swap(&data->tab_b[pos], &data->tab_b[pos - 1]);
