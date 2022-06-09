@@ -6,7 +6,7 @@
 /*   By: loamar <loamar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 22:04:59 by loamar            #+#    #+#             */
-/*   Updated: 2022/06/09 00:38:05 by loamar           ###   ########.fr       */
+/*   Updated: 2022/06/09 12:12:08 by loamar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	print_tab(t_data *data); // pour afficher test
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putnbr(long int n);
 void	ft_putchar_fd(char c, int fd);
-int		ft_atoi(const char *str);
+long		ft_atoi(const char *str);
 int		ft_isdigit(int c);
 
 /*

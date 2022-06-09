@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: loamar <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: loamar <loamar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 16:45:45 by loamar            #+#    #+#             */
-/*   Updated: 2022/06/09 00:25:25 by loamar           ###   ########.fr       */
+/*   Updated: 2022/06/09 12:05:10 by loamar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ int	check_double(t_data *data)
 		check = data->tab_a[limit];
 		while (pos < data->size_a)
 		{
-			if (data->tab_a[pos] > 2147483647 || data->tab_a[pos] < (-2147483647 - 1))
-				return (ERROR);
 			if (data->tab_a[pos] == check
 				&& limit != pos)
 				return (ERROR);

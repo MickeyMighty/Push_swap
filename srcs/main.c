@@ -6,7 +6,7 @@
 /*   By: loamar <loamar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 22:13:02 by loamar            #+#    #+#             */
-/*   Updated: 2022/06/09 00:27:51 by loamar           ###   ########.fr       */
+/*   Updated: 2022/06/09 12:19:16 by loamar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	find_min_nbr(t_data *data)
 int	fill_tab(t_data *data, char **argv)
 {
 	int	pos;
+	long check;
 
 	pos = 0;
 	data->tab_a = malloc(sizeof(int) * data->size_a);
@@ -47,7 +48,12 @@ int	fill_tab(t_data *data, char **argv)
 		return (ERROR);
 	while (pos < data->size_a)
 	{
-		data->tab_a[pos] = ft_atoi(argv[pos + 1]);
+		check = (long)ft_atoi(argv[pos + 1]);
+		if (check > 2147483647 || check < (-2147483647 - 1))
+			return (ERROR);
+		else
+			data->tab_a[pos] = (int)check;
+		// data->tab_a[pos] = ft_atoi(argv[pos + 1]);
 		pos++;
 	}
 	data->free_lair_tab = 0;
@@ -91,7 +97,6 @@ int	main(int argc, char **argv)
 		return (error_msg());
 	if (check_double(&data) == ERROR)
 	{
-		printf("ici\n");
 		free_data(&data, 1);
 		return (error_msg());
 	}
